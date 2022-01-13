@@ -30,12 +30,12 @@ public class ProductController {
     }
 
     @PostMapping
-    public Mono<ProductDto> saveProduct(Mono<ProductDto> productDtoMono) {
+    public Mono<ProductDto> saveProduct(@RequestBody Mono<ProductDto> productDtoMono) {
         return service.saveProduct(productDtoMono);
     }
 
     @PutMapping("/{id}")
-    public Mono<ProductDto> saveProduct(Mono<ProductDto> productDtoMono, @PathVariable String id) {
+    public Mono<ProductDto> saveProduct(@RequestBody Mono<ProductDto> productDtoMono, @PathVariable String id) {
         return service.updateProduct(productDtoMono, id);
     }
 

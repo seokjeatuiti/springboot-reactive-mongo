@@ -3,7 +3,26 @@ spring:
     mongodb:
       database: Productsdb
       host: localhost
+#      host: mongodb
       port: 27017
 
-server:
-  port: 9292
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,beans
+
+
+app:
+  name: @project.name@
+  version: @project.version@
+  java:
+    version: @java.version@
+  spring:
+    framework:
+      version: @spring-framework.version@
+    data:
+      version: @spring-data-bom.version@
